@@ -1,27 +1,21 @@
 {
   "schemaVersion": 1,
-  "id": "addon-template",
+  "id": "hivemind",
   "version": "${version}",
-  "name": "Addon Template",
-  "description": "An addon template for Meteor Client addons.",
+  "name": "Hivemind",
+  "description": "Reimagined version of Meteor's swarm module with greater functionality.",
   "authors": [
-    "seasnail"
+    "machiecodes"
   ],
-  "contact": {
-    "sources": "https://github.com/MeteorDevelopment/meteor-addon-template"
-  },
-  "icon": "assets/template/icon.png",
+  "icon": "assets/hivemind/icon.png",
   "environment": "client",
   "entrypoints": {
     "meteor": [
-      "com.example.addon.AddonTemplate"
+      "me.machie.hivemind.Addon"
     ]
   },
-  "mixins": [
-    "addon-template.mixins.json"
-  ],
   "custom": {
-    "meteor-client:color": "225,25,25",
+    "meteor-client:color": "60,150,220",
     "modmenu": {
       "parent": {
         "id": "meteor-client"
