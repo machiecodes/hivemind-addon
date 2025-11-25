@@ -1,8 +1,8 @@
 package me.machie.hivemind;
 
 import com.mojang.logging.LogUtils;
-import me.machie.hivemind.modules.Hive;
-import me.machie.hivemind.modules.Mind;
+import me.machie.hivemind.modules.Client;
+import me.machie.hivemind.modules.Server;
 import meteordevelopment.meteorclient.addons.GithubRepo;
 import meteordevelopment.meteorclient.addons.MeteorAddon;
 import meteordevelopment.meteorclient.systems.modules.Category;
@@ -18,8 +18,8 @@ public class Addon extends MeteorAddon {
         LOG.info("Initializing Hivemind");
 
         // Modules
-        Modules.get().add(new Hive());
-        Modules.get().add(new Mind());
+        Modules.get().add(new Client());
+        Modules.get().add(new Server());
     }
 
     @Override

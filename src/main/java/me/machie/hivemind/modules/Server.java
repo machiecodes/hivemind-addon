@@ -4,18 +4,11 @@ import me.machie.hivemind.Addon;
 import meteordevelopment.meteorclient.settings.IntSetting;
 import meteordevelopment.meteorclient.settings.Setting;
 import meteordevelopment.meteorclient.settings.SettingGroup;
-import meteordevelopment.meteorclient.settings.StringSetting;
 import meteordevelopment.meteorclient.systems.modules.Module;
+import meteordevelopment.meteorclient.systems.modules.Modules;
 
-public class Mind extends Module {
+public class Server extends Module {
     private final SettingGroup sgGeneral = settings.getDefaultGroup();
-
-    private final Setting<String> ip = sgGeneral.add(new StringSetting.Builder()
-        .name("ip")
-        .description("The IP address to connect to.")
-        .defaultValue("localhost")
-        .build()
-    );
 
     private final Setting<Integer> port = sgGeneral.add(new IntSetting.Builder()
         .name("port")
@@ -26,7 +19,23 @@ public class Mind extends Module {
         .build()
     );
 
-    public Mind() {
-        super(Addon.CATEGORY, "mind", "Completes tasks for the hive.");
+    private ServerThread thread;
+
+    public Server() {
+        super(Addon.CATEGORY, "server", "Uses this Meteor instance to manage other instances.");
+    }
+
+    @Override
+    public void onActivate() {
+        Client client = Modules.get().get(Client.class);
+        if (client.isActive()) client.toggle();
+
+        thread = new ServerThread(port.get());
+        if (thread.socket != null) thread.start();
+    }
+
+    @Override
+    public void onDeactivate() {
+        thread.interrupt();
     }
 }
