@@ -1,6 +1,6 @@
 package me.machie.collective.modules;
 
-import me.machie.collective.util.SafeLoggingThread;
+import meteordevelopment.meteorclient.utils.player.ChatUtils;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -8,26 +8,26 @@ import java.io.IOException;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
 
-public class Connection extends SafeLoggingThread {
+public class WorkerConnection extends Thread {
     public Socket socket;
 
-    public Connection(Socket socket) {
+    public WorkerConnection(Socket socket) {
         this.socket = socket;
     }
 
-    public Connection(String ip, int port) {
+    public WorkerConnection(String ip, int port) {
         try {
             socket = new Socket(ip, port);
         } catch (IOException e) {
             socket = null;
-            error("Server not found at %s:%s", ip, port);
+            ChatUtils.errorPrefix("Collective", "Server not found at %s:%s", ip, port);
             e.printStackTrace();
         }
     }
 
     @Override
     public void run() {
-        info("New connection established to %s", getAddress());
+        ChatUtils.infoPrefix("Collective", "Connection to %s established.", getAddress());
 
         try {
             socket.setSoTimeout(50);
@@ -43,18 +43,18 @@ public class Connection extends SafeLoggingThread {
                 // TODO communication :3
             }
         } catch (IOException e) {
-            error("Error with connection to %s",  getAddress());
+            ChatUtils.errorPrefix("Collective", "Error with connection to %s",  getAddress());
             e.printStackTrace();
         }
 
         try {
             socket.close();
         } catch (IOException e) {
-            error("Error closing socket.");
+            ChatUtils.errorPrefix("Collective", "Error closing socket.");
             e.printStackTrace();
         }
 
-        info("Connection to %s closed.", getAddress());
+        ChatUtils.infoPrefix("Collective", "Connection to %s closed.", getAddress());
     }
 
     public boolean shouldRemove() {

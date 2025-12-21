@@ -1,15 +1,15 @@
 package me.machie.collective;
 
 import com.mojang.logging.LogUtils;
-import me.machie.collective.modules.Client;
-import me.machie.collective.modules.Server;
+import me.machie.collective.modules.Worker;
+import me.machie.collective.modules.Host;
 import meteordevelopment.meteorclient.addons.GithubRepo;
 import meteordevelopment.meteorclient.addons.MeteorAddon;
 import meteordevelopment.meteorclient.systems.modules.Category;
 import meteordevelopment.meteorclient.systems.modules.Modules;
 import org.slf4j.Logger;
 
-public class Addon extends MeteorAddon {
+public class Collective extends MeteorAddon {
     public static final Logger LOG = LogUtils.getLogger();
     public static final Category CATEGORY = new Category("Hivemind");
 
@@ -18,8 +18,8 @@ public class Addon extends MeteorAddon {
         LOG.info("Initializing Hivemind");
 
         // Modules
-        Modules.get().add(new Client());
-        Modules.get().add(new Server());
+        Modules.get().add(new Worker());
+        Modules.get().add(new Host());
     }
 
     @Override
@@ -34,6 +34,6 @@ public class Addon extends MeteorAddon {
 
     @Override
     public GithubRepo getRepo() {
-        return new GithubRepo("machiecodes", "hivemind-addon");
+        return new GithubRepo("machiecodes", "collective-addon");
     }
 }

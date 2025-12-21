@@ -1,6 +1,6 @@
 package me.machie.collective.modules;
 
-import me.machie.collective.Addon;
+import me.machie.collective.Collective;
 import meteordevelopment.meteorclient.settings.IntSetting;
 import meteordevelopment.meteorclient.settings.Setting;
 import meteordevelopment.meteorclient.settings.SettingGroup;
@@ -8,7 +8,7 @@ import meteordevelopment.meteorclient.settings.StringSetting;
 import meteordevelopment.meteorclient.systems.modules.Module;
 import meteordevelopment.meteorclient.systems.modules.Modules;
 
-public class Client extends Module {
+public class Worker extends Module {
     private final SettingGroup sgGeneral = settings.getDefaultGroup();
 
     private final Setting<String> ip = sgGeneral.add(new StringSetting.Builder()
@@ -27,18 +27,18 @@ public class Client extends Module {
         .build()
     );
 
-    private Connection connection;
+    private WorkerConnection connection;
 
-    public Client() {
-        super(Addon.CATEGORY, "client", "Uses this Meteor instance to complete tasks.");
+    public Worker() {
+        super(Collective.CATEGORY, "worker", "Uses this Meteor instance to complete tasks.");
     }
 
     @Override
     public void onActivate() {
-        Server server = Modules.get().get(Server.class);
-        if (server.isActive()) server.toggle();
+        Host host = Modules.get().get(Host.class);
+        if (host.isActive()) host.toggle();
 
-        connection = new Connection(ip.get(), port.get());
+        connection = new WorkerConnection(ip.get(), port.get());
         if (connection.socket != null) connection.start();
     }
 

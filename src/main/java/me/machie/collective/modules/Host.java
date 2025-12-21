@@ -1,13 +1,13 @@
 package me.machie.collective.modules;
 
-import me.machie.collective.Addon;
+import me.machie.collective.Collective;
 import meteordevelopment.meteorclient.settings.IntSetting;
 import meteordevelopment.meteorclient.settings.Setting;
 import meteordevelopment.meteorclient.settings.SettingGroup;
 import meteordevelopment.meteorclient.systems.modules.Module;
 import meteordevelopment.meteorclient.systems.modules.Modules;
 
-public class Server extends Module {
+public class Host extends Module {
     private final SettingGroup sgGeneral = settings.getDefaultGroup();
 
     private final Setting<Integer> port = sgGeneral.add(new IntSetting.Builder()
@@ -19,18 +19,18 @@ public class Server extends Module {
         .build()
     );
 
-    private ServerThread thread;
+    private HostConnection thread;
 
-    public Server() {
-        super(Addon.CATEGORY, "server", "Uses this Meteor instance to manage other instances.");
+    public Host() {
+        super(Collective.CATEGORY, "host", "Uses this Meteor instance to manage other instances.");
     }
 
     @Override
     public void onActivate() {
-        Client client = Modules.get().get(Client.class);
-        if (client.isActive()) client.toggle();
+        Worker worker = Modules.get().get(Worker.class);
+        if (worker.isActive()) worker.toggle();
 
-        thread = new ServerThread(port.get());
+        thread = new HostConnection(port.get());
         if (thread.socket != null) thread.start();
     }
 

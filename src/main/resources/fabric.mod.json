@@ -11,7 +11,7 @@
   "environment": "client",
   "entrypoints": {
     "meteor": [
-      "me.machie.collective.Addon"
+      "me.machie.collective.Collective"
     ]
   },
   "custom": {
