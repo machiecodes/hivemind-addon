@@ -1,4 +1,4 @@
-package me.machie.collective.modules;
+package me.machie.collective.systems.collective;
 
 import meteordevelopment.meteorclient.utils.player.ChatUtils;
 

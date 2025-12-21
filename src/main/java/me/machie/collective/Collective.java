@@ -1,25 +1,26 @@
 package me.machie.collective;
 
 import com.mojang.logging.LogUtils;
-import me.machie.collective.modules.Worker;
-import me.machie.collective.modules.Host;
+import me.machie.collective.gui.tabs.CollectiveTab;
+import me.machie.collective.systems.collective.CollectiveSystem;
 import meteordevelopment.meteorclient.addons.GithubRepo;
 import meteordevelopment.meteorclient.addons.MeteorAddon;
+import meteordevelopment.meteorclient.gui.tabs.Tabs;
+import meteordevelopment.meteorclient.systems.Systems;
 import meteordevelopment.meteorclient.systems.modules.Category;
 import meteordevelopment.meteorclient.systems.modules.Modules;
 import org.slf4j.Logger;
 
 public class Collective extends MeteorAddon {
     public static final Logger LOG = LogUtils.getLogger();
-    public static final Category CATEGORY = new Category("Hivemind");
+    public static final Category CATEGORY = new Category("Collective");
 
     @Override
     public void onInitialize() {
-        LOG.info("Initializing Hivemind");
+        LOG.info("Initializing Collective");
 
-        // Modules
-        Modules.get().add(new Worker());
-        Modules.get().add(new Host());
+        Tabs.add(new CollectiveTab());
+        Systems.add(new CollectiveSystem());
     }
 
     @Override
@@ -29,7 +30,7 @@ public class Collective extends MeteorAddon {
 
     @Override
     public String getPackage() {
-        return "me.machie.hivemind";
+        return "me.machie.collective";
     }
 
     @Override
