@@ -1,6 +1,6 @@
-package me.machie.hivemind.modules;
+package me.machie.collective.modules;
 
-import me.machie.hivemind.util.SafeLoggingThread;
+import me.machie.collective.util.SafeLoggingThread;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;

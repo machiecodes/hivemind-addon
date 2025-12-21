@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
-  "id": "hivemind",
+  "id": "collective",
   "version": "${version}",
-  "name": "Hivemind",
+  "name": "Collective",
   "description": "Reimagined version of Meteor's swarm module with greater functionality.",
   "authors": [
     "machiecodes"
   ],
-  "icon": "assets/hivemind/icon.png",
+  "icon": "assets/collective/icon.png",
   "environment": "client",
   "entrypoints": {
     "meteor": [
-      "me.machie.hivemind.Addon"
+      "me.machie.collective.Addon"
     ]
   },
   "custom": {

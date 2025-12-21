@@ -1,4 +1,4 @@
-package me.machie.hivemind.util;
+package me.machie.collective.util;
 
 import meteordevelopment.meteorclient.utils.player.ChatUtils;
 import net.minecraft.client.MinecraftClient;

@@ -1,8 +1,8 @@
-package me.machie.hivemind;
+package me.machie.collective;
 
 import com.mojang.logging.LogUtils;
-import me.machie.hivemind.modules.Client;
-import me.machie.hivemind.modules.Server;
+import me.machie.collective.modules.Client;
+import me.machie.collective.modules.Server;
 import meteordevelopment.meteorclient.addons.GithubRepo;
 import meteordevelopment.meteorclient.addons.MeteorAddon;
 import meteordevelopment.meteorclient.systems.modules.Category;

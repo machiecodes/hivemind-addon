@@ -1,6 +1,6 @@
-package me.machie.hivemind.modules;
+package me.machie.collective.modules;
 
-import me.machie.hivemind.Addon;
+import me.machie.collective.Addon;
 import meteordevelopment.meteorclient.settings.IntSetting;
 import meteordevelopment.meteorclient.settings.Setting;
 import meteordevelopment.meteorclient.settings.SettingGroup;
