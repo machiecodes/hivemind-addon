@@ -1,6 +1,5 @@
 package me.machie.collective.gui.tabs;
 
-import me.machie.collective.gui.screens.CollectiveScreen;
 import meteordevelopment.meteorclient.gui.GuiTheme;
 import meteordevelopment.meteorclient.gui.tabs.Tab;
 import meteordevelopment.meteorclient.gui.tabs.TabScreen;
@@ -13,11 +12,11 @@ public class CollectiveTab extends Tab {
 
     @Override
     public TabScreen createScreen(GuiTheme theme) {
-        return new CollectiveScreen(theme, this);
+
     }
 
     @Override
     public boolean isScreen(Screen screen) {
-        return screen instanceof CollectiveScreen;
+
     }
 }

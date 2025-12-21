@@ -8,11 +8,11 @@ import java.net.SocketTimeoutException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HostConnection extends Thread {
+public class ManagerConnection extends Thread {
     public ServerSocket socket;
     public final List<WorkerConnection> connections = new ArrayList<>(8);
 
-    public HostConnection(int port) {
+    public ManagerConnection(int port) {
         try {
             socket = new ServerSocket(port);
             socket.setSoTimeout(50);

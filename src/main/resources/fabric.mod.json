@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "collective",
+  "id": "collective-addon",
   "version": "${version}",
   "name": "Collective",
   "description": "Reimagined version of Meteor's swarm module with greater functionality.",
