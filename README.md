@@ -1,11 +1,11 @@
 <div align="center">
     <img align src="https://raw.githubusercontent.com/machiecodes/hivemind-addon/master/src/main/resources/assets/hivemind/icon.png" alt="Hivemind logo" width="128px"/>
-    <h1 align="center">Hivemind</h1>
+    <h1 align="center">Collective</h1>
     <p><em>A successor to Meteor Client's swarm module which has been unmaintained for some time.</em></p>
     <img src="https://img.shields.io/badge/Author-MachieChirps-gold" alt="Author: MachieChirps">
     <img src="https://img.shields.io/badge/Verified_Addon-No-blue" alt="Verified Addon: No">
     <img src="https://img.shields.io/badge/Version-0.1.0-red" alt="Version: 0.1.0">
-    <img src="https://img.shields.io/badge/Minecraft-1.21.10-brown" alt="MC Version: 1.21.10">
+    <img src="https://img.shields.io/badge/Minecraft-1.21.10-brown" alt="MC Version: 1.21.11">
 </div>
 
 <h2>Planned functionality:</h2>
