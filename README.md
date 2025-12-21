@@ -1,5 +1,5 @@
 <div align="center">
-    <img align src="https://raw.githubusercontent.com/machiecodes/hivemind-addon/master/src/main/resources/assets/hivemind/icon.png" alt="Hivemind logo" width="128px"/>
+    <img align src="https://raw.githubusercontent.com/machiecodes/collective-addon/master/src/main/resources/assets/hivemind/icon.png" alt="Hivemind logo" width="128px"/>
     <h1 align="center">Collective</h1>
     <p><em>A successor to Meteor Client's swarm module which has been unmaintained for some time.</em></p>
     <img src="https://img.shields.io/badge/Author-MachieChirps-gold" alt="Author: MachieChirps">
