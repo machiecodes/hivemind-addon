@@ -1,7 +1,5 @@
 package me.machie.collective.gui.screens;
 
-import me.machie.collective.settings.CSettings;
-import me.machie.collective.settings.TSettings;
 import me.machie.collective.systems.collective.CollectiveSystem;
 import meteordevelopment.meteorclient.gui.GuiTheme;
 import meteordevelopment.meteorclient.gui.tabs.Tab;
@@ -24,16 +22,14 @@ public class CollectiveScreen extends TabScreen {
     @Override
     public void initWidgets() {
         cWindow = add(theme.window("Connections")).widget();
+        cWindow.id = "connections";
         cContainer = cWindow.add(theme.verticalList()).expandX().widget();
-        cContainer.add(theme.settings(CSettings.get())).expandX();
+        // cContainer.add(theme.settings(ConnectionSettings.get())).expandX();
 
         tWindow = add(theme.window("Task Menu")).widget();
+        tWindow.id = "taskmenu";
         tContainer = tWindow.add(theme.verticalList()).expandX().widget();
-        tContainer.add(theme.settings(TSettings.get())).expandX();
-    }
-
-    private void fillConnections(WWindow window) {
-
+        // tContainer.add(theme.settings(TaskSettings.get())).expandX();
     }
 
     @Override
@@ -50,7 +46,7 @@ public class CollectiveScreen extends TabScreen {
     public void tick() {
         super.tick();
 
-        CSettings.get().tick(cContainer, theme);
-        TSettings.get().tick(tContainer, theme);
+        // ConnectionSettings.get().tick(cContainer, theme);
+        // TaskSettings.get().tick(tContainer, theme);
     }
 }
